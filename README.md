@@ -1,6 +1,5 @@
 # Comp491: Indoor Navigation Spring20'
-One Paragraph of project description goes here
-
+The Indoor Navigation project will consist of two main features. While one feature is allowing users to navigate through a place, where they don’t know, with the help of anchors designated in the area, the other feature will allow users to build maps for their indoor places to enable newcomers to navigate inside the place. Anchors refer to the QR codes that the user will place. The initial feature will show the users the available shortest path for their indoor destination
 # Index
 
 
