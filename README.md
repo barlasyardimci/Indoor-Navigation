@@ -17,7 +17,7 @@ Desktop application main screen initialization.
  
 
 # Drive Link
-Our [drive](https://drive.google.com/drive/folders/1sQKF2AT9EJE40fnMV3hev7vZ0YR7m5yO?usp=sharing) is up ! You can check every document uploaded
+Our [drive](https://drive.google.com/drive/folders/1sQKF2AT9EJE40fnMV3hev7vZ0YR7m5yO?usp=sharing) is up ! You can check every document uploaded.
 # Contributors 
 Ege Dinçer  
 Barlas Yardımcı  
