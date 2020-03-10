@@ -1,0 +1,4 @@
+C:\Users\egedi\OneDrive\Masaüstü\Graph C#\SimpleGraphLibrary\GraphLibrary\GraphLibrary\bin\Debug\GraphLibrary.dll
+C:\Users\egedi\OneDrive\Masaüstü\Graph C#\SimpleGraphLibrary\GraphLibrary\GraphLibrary\bin\Debug\GraphLibrary.pdb
+C:\Users\egedi\OneDrive\Masaüstü\Graph C#\SimpleGraphLibrary\GraphLibrary\GraphLibrary\obj\Debug\GraphLibrary.dll
+C:\Users\egedi\OneDrive\Masaüstü\Graph C#\SimpleGraphLibrary\GraphLibrary\GraphLibrary\obj\Debug\GraphLibrary.pdb
