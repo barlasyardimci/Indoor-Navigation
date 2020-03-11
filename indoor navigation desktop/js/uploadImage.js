@@ -5,6 +5,7 @@ function upload() {
     var imageName=image.name;
     //firebase  storage reference
     //it is the path where yyour image will store
+    writeUserData(imageName);
     var storageRef=firebase.storage().ref('backgroundImages/'+imageName);
     //upload image to selected storage reference
 
@@ -26,5 +27,14 @@ function upload() {
             //get your upload image url here...
             console.log(downlaodURL);
         });
+    });
+}
+
+
+function writeUserData(imageName) {
+    var messageListRef = firebase.database().ref('backgroundImages');
+    var newMessageRef = messageListRef.push();
+    newMessageRef.set({
+      'name': imageName,
     });
 }
