@@ -10,6 +10,7 @@ Image uploading and custom background importing is functional now.
 Firebase database and storage systems are initialized and connected to image upload/import.  
 [Progress video](https://drive.google.com/open?id=1PQtSVIphPqMHelSfKzdgEVxzsrC6Hc95) for desktop app login screen is up.  
 [Progress video](https://drive.google.com/open?id=1jUZuCxGi2TskhCB-bxX3Qq_UI4uPcJMM) for desktop app upload image/ import background is up.  
+[Progress video](https://drive.google.com/open?id=1u0vkCaE55TqpzvQMw2rs4zjsT88jprWd) for QR scanner is up. 
 Do not forget to check different branches! 
 ### 28.02.2019
 [Progress video](https://drive.google.com/drive/folders/1zbswmWhmJqIjRpEiLm53amMJ3tlBQjD-?usp=sharing) for mobile application is up.  
