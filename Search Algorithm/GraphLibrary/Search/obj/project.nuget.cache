@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "+ET/TwYqu3tXxGit4ioArGFR/XDctqzsMjN7vRJHBJX4JEgi1w3KqkGIWLp3zTm8M07p+1IqmD+GpQYY8oyV7w==",
+  "dgSpecHash": "1ZzxXr/PhtJOP6ey6dNx487gLgVwXR9ROfdvyqtU2ZXky5vI1ZVcaH/jgt0sJBfVUM3e3eyhmSyq+AfGLb6YeA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\egedi\\OneDrive\\Masaüstü\\Search Algorithm\\GraphLibrary\\Search\\Search.csproj",
+  "projectFilePath": "C:\\Users\\Metin\\Documents\\GitHub\\Indoor-Navigation\\Search Algorithm\\GraphLibrary\\Search\\Search.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\egedi\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
-    "C:\\Users\\egedi\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
   ],
   "logs": []
 }
