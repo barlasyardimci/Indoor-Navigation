@@ -1,0 +1,12 @@
+C:\Users\egedi\OneDrive\Masaüstü\Search Algorithm\GraphLibrary\Search\bin\Debug\netstandard2.0\Search.deps.json
+C:\Users\egedi\OneDrive\Masaüstü\Search Algorithm\GraphLibrary\Search\bin\Debug\netstandard2.0\Search.dll
+C:\Users\egedi\OneDrive\Masaüstü\Search Algorithm\GraphLibrary\Search\bin\Debug\netstandard2.0\Search.pdb
+C:\Users\egedi\OneDrive\Masaüstü\Search Algorithm\GraphLibrary\Search\obj\Debug\netstandard2.0\Search.csprojAssemblyReference.cache
+C:\Users\egedi\OneDrive\Masaüstü\Search Algorithm\GraphLibrary\Search\obj\Debug\netstandard2.0\Search.csproj.CoreCompileInputs.cache
+C:\Users\egedi\OneDrive\Masaüstü\Search Algorithm\GraphLibrary\Search\obj\Debug\netstandard2.0\Search.AssemblyInfoInputs.cache
+C:\Users\egedi\OneDrive\Masaüstü\Search Algorithm\GraphLibrary\Search\obj\Debug\netstandard2.0\Search.AssemblyInfo.cs
+C:\Users\egedi\OneDrive\Masaüstü\Search Algorithm\GraphLibrary\Search\obj\Debug\netstandard2.0\Search.dll
+C:\Users\egedi\OneDrive\Masaüstü\Search Algorithm\GraphLibrary\Search\obj\Debug\netstandard2.0\Search.pdb
+C:\Users\egedi\OneDrive\Masaüstü\Search Algorithm\GraphLibrary\Search\bin\Debug\netstandard2.0\SearchLibrary.dll
+C:\Users\egedi\OneDrive\Masaüstü\Search Algorithm\GraphLibrary\Search\bin\Debug\netstandard2.0\SearchLibrary.pdb
+C:\Users\egedi\OneDrive\Masaüstü\Search Algorithm\GraphLibrary\Search\obj\Debug\netstandard2.0\Search.csproj.CopyComplete

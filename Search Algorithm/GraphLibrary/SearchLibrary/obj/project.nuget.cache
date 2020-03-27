@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "eonWCNnCjapDEadl5S835gP46PkfWsVRHJm6Ir4TEu2Jl6iI6YSCTiRv6QEdTkOB+b+dqCGE74gkuE4A651NDA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\egedi\\OneDrive\\Masaüstü\\Search Algorithm\\GraphLibrary\\SearchLibrary\\SearchLibrary.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\egedi\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\egedi\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
