@@ -2,10 +2,24 @@
 The Indoor Navigation project will consist of two main features. While one feature is allowing users to navigate through a place, where they don’t know, with the help of anchors designated in the area, the other feature will allow users to build maps for their indoor places to enable newcomers to navigate inside the place. Anchors refer to the QR codes that the user will place. The initial feature will show the users the available shortest path for their indoor destination
 
 # News
-### 13.03.2020
-A working backend-graph for Desktop application is created. It is tested with a pre-initialized nodes and edges.
 
+### 27.03.2020  
+A working backend-graph for Mobile application is created. It is tested with a pre-initialized nodes and edges.  
+Dijkstra shortest path algorithm is implemented and tested.  
+TODO: Link the library with Unity application.  
+
+### 13.03.2020
+A dummy login screen is implemented. It needs to be connected to the firebase.  
+QR scanner for mobile application is implemented.  
+Custom map graph is initialized.  
+Image uploading and custom background importing is functional now.  
+Firebase database and storage systems are initialized and connected to image upload/import.  
+[Progress video](https://drive.google.com/open?id=1PQtSVIphPqMHelSfKzdgEVxzsrC6Hc95) for desktop app login screen is up.  
+[Progress video](https://drive.google.com/open?id=1jUZuCxGi2TskhCB-bxX3Qq_UI4uPcJMM) for desktop app upload image/ import background is up.  
+[Progress video](https://drive.google.com/open?id=1u0vkCaE55TqpzvQMw2rs4zjsT88jprWd) for QR scanner is up. 
+Do not forget to check different branches! 
 ### 28.02.2020
+
 [Progress video](https://drive.google.com/drive/folders/1zbswmWhmJqIjRpEiLm53amMJ3tlBQjD-?usp=sharing) for mobile application is up.  
 Mobile application main screen initialization.  
 Desktop application main screen initialization.  
