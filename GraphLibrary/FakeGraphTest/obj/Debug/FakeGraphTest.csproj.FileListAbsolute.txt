@@ -1,0 +1,11 @@
+C:\Users\egedi\OneDrive\Masaüstü\Graph C#\SimpleGraphLibrary\GraphLibrary\FakeGraphTest\obj\Debug\FakeGraphTest.csprojAssemblyReference.cache
+C:\Users\egedi\OneDrive\Masaüstü\Graph C#\SimpleGraphLibrary\GraphLibrary\FakeGraphTest\obj\Debug\FakeGraphTest.Properties.Resources.resources
+C:\Users\egedi\OneDrive\Masaüstü\Graph C#\SimpleGraphLibrary\GraphLibrary\FakeGraphTest\obj\Debug\FakeGraphTest.csproj.GenerateResource.cache
+C:\Users\egedi\OneDrive\Masaüstü\Graph C#\SimpleGraphLibrary\GraphLibrary\FakeGraphTest\bin\Debug\FakeGraphTest.exe.config
+C:\Users\egedi\OneDrive\Masaüstü\Graph C#\SimpleGraphLibrary\GraphLibrary\FakeGraphTest\bin\Debug\FakeGraphTest.exe
+C:\Users\egedi\OneDrive\Masaüstü\Graph C#\SimpleGraphLibrary\GraphLibrary\FakeGraphTest\bin\Debug\FakeGraphTest.pdb
+C:\Users\egedi\OneDrive\Masaüstü\Graph C#\SimpleGraphLibrary\GraphLibrary\FakeGraphTest\bin\Debug\GraphLibrary.dll
+C:\Users\egedi\OneDrive\Masaüstü\Graph C#\SimpleGraphLibrary\GraphLibrary\FakeGraphTest\bin\Debug\GraphLibrary.pdb
+C:\Users\egedi\OneDrive\Masaüstü\Graph C#\SimpleGraphLibrary\GraphLibrary\FakeGraphTest\obj\Debug\FakeGraphTest.csproj.CopyComplete
+C:\Users\egedi\OneDrive\Masaüstü\Graph C#\SimpleGraphLibrary\GraphLibrary\FakeGraphTest\obj\Debug\FakeGraphTest.exe
+C:\Users\egedi\OneDrive\Masaüstü\Graph C#\SimpleGraphLibrary\GraphLibrary\FakeGraphTest\obj\Debug\FakeGraphTest.pdb
