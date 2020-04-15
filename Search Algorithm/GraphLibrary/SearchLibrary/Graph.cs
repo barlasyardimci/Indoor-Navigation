@@ -6,6 +6,7 @@ namespace SearchLibrary
 {
     public class Graph
     {
+        private Dictionary<string, Node> idToNode = new Dictionary<string, Node>();
         private List<Node> VertexList = new List<Node>();
         private List<Edge> EdgeList = new List<Edge>();
         private Dictionary<string, List<Node>> globalRoomList = new Dictionary<string, List<Node>>();
@@ -33,6 +34,10 @@ namespace SearchLibrary
         {
             return this.globalRoomList;
         }
+        public Dictionary<string, Node> getIdToNode()
+        {
+            return this.idToNode;
+        }
         public Dictionary<Node, int> getUniqueNodeId()
         {
             return this.uniqueNodeId;
@@ -57,6 +62,7 @@ namespace SearchLibrary
             /* Assign Unique Integer Values to the Node IDs */
             foreach(Node vertex in VertexList)
             {
+                this.idToNode.Add(vertex.getId(), vertex);
                 if (!this.uniqueNodeId.ContainsKey(vertex))
                 {
                     this.uniqueNodeId.Add(vertex,val);
@@ -95,16 +101,14 @@ namespace SearchLibrary
         public string getEdgeCommand(Node nodeStart, Node nodeEnd)
         {
             string command = "";
-            foreach(Edge edge in this.EdgeList)
+            foreach(Edge edge in nodeStart.getEdgeList())
             {
-                if (edge.getSource() == nodeStart && edge.getTarget() == nodeEnd)
+                if (edge.getTarget() == nodeEnd)
                 {
-                    command = edge.getNavCommand();
-                    break;
+                    return command = edge.getNavCommand();
+                    
                 }
             }
-
-
             return command;
         }
     }

@@ -8,19 +8,23 @@
     ".NETCoreApp,Version=v3.1": []
   },
   "packageFolders": {
-    "C:\\Users\\egedi\\.nuget\\packages\\": {}
+    "C:\\Users\\Metin\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\egedi\\OneDrive\\Masaüstü\\Search Algorithm\\GraphLibrary\\TestProgram\\TestProgram.csproj",
+      "projectUniqueName": "C:\\Users\\Metin\\Documents\\GitHub\\Indoor-Navigation\\Search Algorithm\\GraphLibrary\\TestProgram\\TestProgram.csproj",
       "projectName": "TestProgram",
-      "projectPath": "C:\\Users\\egedi\\OneDrive\\Masaüstü\\Search Algorithm\\GraphLibrary\\TestProgram\\TestProgram.csproj",
-      "packagesPath": "C:\\Users\\egedi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\egedi\\OneDrive\\Masaüstü\\Search Algorithm\\GraphLibrary\\TestProgram\\obj\\",
+      "projectPath": "C:\\Users\\Metin\\Documents\\GitHub\\Indoor-Navigation\\Search Algorithm\\GraphLibrary\\TestProgram\\TestProgram.csproj",
+      "packagesPath": "C:\\Users\\Metin\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Metin\\Documents\\GitHub\\Indoor-Navigation\\Search Algorithm\\GraphLibrary\\TestProgram\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
       "configFilePaths": [
-        "C:\\Users\\egedi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Metin\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

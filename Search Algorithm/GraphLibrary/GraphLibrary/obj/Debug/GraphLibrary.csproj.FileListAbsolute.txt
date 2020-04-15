@@ -4,3 +4,9 @@ C:\Users\egedi\OneDrive\Masaüstü\Search Algorithm\GraphLibrary\GraphLibrary\ob
 C:\Users\egedi\OneDrive\Masaüstü\Search Algorithm\GraphLibrary\GraphLibrary\obj\Debug\GraphLibrary.csproj.CoreCompileInputs.cache
 C:\Users\egedi\OneDrive\Masaüstü\Search Algorithm\GraphLibrary\GraphLibrary\obj\Debug\GraphLibrary.dll
 C:\Users\egedi\OneDrive\Masaüstü\Search Algorithm\GraphLibrary\GraphLibrary\obj\Debug\GraphLibrary.pdb
+C:\Users\Metin\Documents\GitHub\Indoor-Navigation\Search Algorithm\GraphLibrary\GraphLibrary\bin\Debug\GraphLibrary.dll
+C:\Users\Metin\Documents\GitHub\Indoor-Navigation\Search Algorithm\GraphLibrary\GraphLibrary\bin\Debug\GraphLibrary.pdb
+C:\Users\Metin\Documents\GitHub\Indoor-Navigation\Search Algorithm\GraphLibrary\GraphLibrary\obj\Debug\GraphLibrary.csprojAssemblyReference.cache
+C:\Users\Metin\Documents\GitHub\Indoor-Navigation\Search Algorithm\GraphLibrary\GraphLibrary\obj\Debug\GraphLibrary.csproj.CoreCompileInputs.cache
+C:\Users\Metin\Documents\GitHub\Indoor-Navigation\Search Algorithm\GraphLibrary\GraphLibrary\obj\Debug\GraphLibrary.dll
+C:\Users\Metin\Documents\GitHub\Indoor-Navigation\Search Algorithm\GraphLibrary\GraphLibrary\obj\Debug\GraphLibrary.pdb

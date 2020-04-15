@@ -1,20 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\egedi\\OneDrive\\Masaüstü\\Search Algorithm\\GraphLibrary\\Search\\Search.csproj": {}
+    "C:\\Users\\Metin\\Documents\\GitHub\\Indoor-Navigation\\Search Algorithm\\GraphLibrary\\Search\\Search.csproj": {}
   },
   "projects": {
-    "C:\\Users\\egedi\\OneDrive\\Masaüstü\\Search Algorithm\\GraphLibrary\\Search\\Search.csproj": {
+    "C:\\Users\\Metin\\Documents\\GitHub\\Indoor-Navigation\\Search Algorithm\\GraphLibrary\\Search\\Search.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\egedi\\OneDrive\\Masaüstü\\Search Algorithm\\GraphLibrary\\Search\\Search.csproj",
+        "projectUniqueName": "C:\\Users\\Metin\\Documents\\GitHub\\Indoor-Navigation\\Search Algorithm\\GraphLibrary\\Search\\Search.csproj",
         "projectName": "Search",
-        "projectPath": "C:\\Users\\egedi\\OneDrive\\Masaüstü\\Search Algorithm\\GraphLibrary\\Search\\Search.csproj",
-        "packagesPath": "C:\\Users\\egedi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\egedi\\OneDrive\\Masaüstü\\Search Algorithm\\GraphLibrary\\Search\\obj\\",
+        "projectPath": "C:\\Users\\Metin\\Documents\\GitHub\\Indoor-Navigation\\Search Algorithm\\GraphLibrary\\Search\\Search.csproj",
+        "packagesPath": "C:\\Users\\Metin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Metin\\Documents\\GitHub\\Indoor-Navigation\\Search Algorithm\\GraphLibrary\\Search\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\egedi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Metin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
