@@ -322,14 +322,14 @@
     <Reference Include="GraphLibrary">
       <HintPath>C:/Users/Metin/Documents/GitHub/Indoor-Navigation/MobileApplication/Assets/ScriptLibrary/Graph/GraphLibrary.dll</HintPath>
     </Reference>
+    <Reference Include="SearchLibrary">
+      <HintPath>C:/Users/Metin/Documents/GitHub/Indoor-Navigation/MobileApplication/Assets/ScriptLibrary/Graph/SearchLibrary.dll</HintPath>
+    </Reference>
     <Reference Include="Search">
       <HintPath>C:/Users/Metin/Documents/GitHub/Indoor-Navigation/MobileApplication/Assets/ScriptLibrary/Search/Search.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.StandardEvents">
       <HintPath>C:/Users/Metin/Documents/GitHub/Indoor-Navigation/MobileApplication/Library/PackageCache/com.unity.analytics@3.2.3/AnalyticsStandardEvents/Unity.Analytics.StandardEvents.dll</HintPath>
-    </Reference>
-    <Reference Include="SearchLibrary">
-      <HintPath>C:/Users/Metin/Documents/GitHub/Indoor-Navigation/MobileApplication/Assets/ScriptLibrary/Graph/SearchLibrary.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>F:/Unity/2018.4.18f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
