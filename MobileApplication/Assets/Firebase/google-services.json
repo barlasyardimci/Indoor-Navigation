@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "380532941190",
+    "firebase_url": "https://indoor-navigation-bf70e.firebaseio.com",
+    "project_id": "indoor-navigation-bf70e",
+    "storage_bucket": "indoor-navigation-bf70e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:380532941190:android:e102e49732a396babe8c07",
+        "android_client_info": {
+          "package_name": "com.IndoorNavigation.MobileApplicationAndroid"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "380532941190-1095jt6rb7gp4nrqmc248dee7qmc0h02.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD_YpE45-_aIN2kf5dLyM4v3_nWhwWAbV0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "380532941190-1095jt6rb7gp4nrqmc248dee7qmc0h02.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "380532941190-q63b588a18bb47abn34tb6th6rgba7te.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.IndoorNavigation.MobileApplicationIOS"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

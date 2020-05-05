@@ -10,6 +10,9 @@ using UnityEngine.UI;
 using Wizcorp.Utils.Logger;
 using Search;
 using SearchLibrary;
+
+
+ 
 public class Demo : MonoBehaviour
 {
     private Node currentNode = null;
@@ -26,6 +29,9 @@ public class Demo : MonoBehaviour
 
         BarcodeScanner = new Scanner();
         BarcodeScanner.Camera.Play();
+        
+
+       
 
 
         BarcodeScanner.OnReady += (sender, arg) => {
