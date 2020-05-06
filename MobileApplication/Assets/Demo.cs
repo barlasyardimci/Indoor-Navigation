@@ -10,9 +10,8 @@ using UnityEngine.UI;
 using Wizcorp.Utils.Logger;
 using Search;
 using SearchLibrary;
+using JetBrains.Annotations;
 
-
- 
 public class Demo : MonoBehaviour
 {
     private Node currentNode = null;
@@ -23,9 +22,27 @@ public class Demo : MonoBehaviour
     public RawImage Image;
     private List<Node> shortestPath = new List<Node>();
     private string room;
-
+    public Canvas PopupMapSelect;
+    public Canvas CameraCanvas;
+    public Canvas PopupRoomSelect;
     void Start()
     {
+        PopupMapSelect.enabled = false;
+        CameraCanvas.enabled = false;
+        PopupRoomSelect.enabled = false;
+        if (CurrentMap.currentMapName == " ")
+        {
+            PopupMapSelect.enabled = true;
+
+        }
+        else if(CurrentMap.targetRoomName == " ")
+        {
+            PopupRoomSelect.enabled = true;
+        }else if(CurrentMap.targetRoomName != " ")
+        {
+            CameraCanvas.enabled = true;
+
+        }
 
         BarcodeScanner = new Scanner();
         BarcodeScanner.Camera.Play();
@@ -74,8 +91,20 @@ public class Demo : MonoBehaviour
 
         BarcodeScanner.Scan((barCodeType, barCodeValue) => {
             BarcodeScanner.Stop();
-            string navCommand = navigate(graph, currentNode, room, barCodeValue);
-            Debug.Log(navCommand);
+            List<string> returnList = navigate(CurrentMap.currentMapGraph, currentNode, CurrentMap.targetRoomName, barCodeValue);
+            string navCommand = returnList[0];
+            string isFinished = returnList[1];
+            if (isFinished == "Finished")
+            {
+                
+                Debug.Log("Navigation commmand is "+navCommand+"the route is finished you can see your destination");
+            }
+            else
+            {
+                Debug.Log("Navigation commmand is " + navCommand);
+
+            }
+
             TextHeader.text = "Output: " +barCodeValue;
             Debug.Log(barCodeValue);
 
@@ -113,10 +142,10 @@ public class Demo : MonoBehaviour
 
         callback.Invoke();
     }
-    private string navigate(Graph graph, Node currentNode,string room,string barCodeValue)
+    private List<string> navigate(Graph graph, Node currentNode,string room,string barCodeValue)
     {
         SearchAlgorithm search = new SearchAlgorithm();
-        
+        Boolean finished = false; 
         string navigationCommand = "";
         List<Node> targetNodes = graph.getGlobalRoomList()[room];
         if (currentNode == null)// first time scanning a qr 
@@ -128,6 +157,7 @@ public class Demo : MonoBehaviour
             //we are already there
             if (shortestPath.Count == 1)
             {
+                finished = true;
                 Node endNode = targetNodes[0];
                 if (targetNodes[0] == currentNode)
                 {
@@ -149,6 +179,7 @@ public class Demo : MonoBehaviour
 
                 if (shortestPath.Count == 1)// we have arrived 
                 {
+                    finished = true;
                     Node endNode = targetNodes[0];
                     if (targetNodes[0] == currentNode)
                     {
@@ -166,6 +197,7 @@ public class Demo : MonoBehaviour
                 shortestPath = search.dijkstra(graph, currentNode, targetNodes);
                 if (shortestPath.Count == 1)
                 {
+                    finished = true;
                     Node endNode = targetNodes[0];
                     if (targetNodes[0] == currentNode)
                     {
@@ -180,7 +212,17 @@ public class Demo : MonoBehaviour
             }
 
         }
-        return navigationCommand;
+        List<string> returnList = new List<string>();
+
+        if (finished)
+        {
+            returnList.Add(navigationCommand);
+            returnList.Add("Finished");
+            return returnList;
+        }
+        returnList.Add(navigationCommand);
+        returnList.Add("notFinished");
+        return returnList;
     }
 
     #endregion
