@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-database.js"></script>
 
     <style>
         body {
@@ -50,6 +52,12 @@
         <button class="openRbtn" onclick="openNavR()">&#9776; Add Edge</button>
         <input type="text" id="anchNamed" onkeyup="success()" required pattern="\S+" placeholder="Enter checkpoint name">
         <input type="button" id="btClickMe" disabled="true" value="Generate Checkpoint" />
+        <select id="rmEdges">
+            <option value="none"></option>
+        </select>
+        <input type="text" id="rmName" onkeyup="successRoom()" required pattern="\S+" placeholder="Enter room name">
+        <input type="button" id="rmButton" disabled="true" value="Add Room To Edge" />
+
 
     </div>
     <div id="rightSideBar" class="sidebar">
@@ -78,12 +86,9 @@
         </select>
         <br></br>
         <label class="label" for="roomname">Enter Distance:</label>
-        <input type="number" name="weight" />
+        <input type="number" id="weight" name="weight" />
         <br></br>
-        <label class="label" for="roomname">Room Name(Optional):</label>
-        <input type="text" id="rName">
-        <br></br>
-        <button class="openbtn" type="button" onclick="">Add Edge</button>
+        <button class="openbtn" type="button" id="addEdge" onclick="">Add Edge</button>
 
     </div>
 
@@ -100,11 +105,32 @@
     var iCnt = 0;
     var step = 0;
     var mapN = " ";
+    const firebaseConfig = {
+        apiKey: "AIzaSyA3ytBSLrjxIqsuFg5uYaOP8HMgZTh-K2o",
+        authDomain: "indoor-navigation-bf70e.firebaseapp.com",
+        databaseURL: "https://indoor-navigation-bf70e.firebaseio.com",
+        projectId: "indoor-navigation-bf70e",
+        storageBucket: "indoor-navigation-bf70e.appspot.com",
+        messagingSenderId: "380532941190",
+        appId: "1:380532941190:web:d1c2fdf1ae2e0f6dbe8c07",
+        measurementId: "G-GJLBX866TQ"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+
+
+    var storage = firebase.storage();
+    var storageRef = storage.ref();
+
     $(document).ready(function() {
 
         $('#btClickMe').click(function() {
             if ($('#anchNamed').val != "") {
-                var dynamic_div = $(document.createElement('div')).css({
+                var nameanch = $('#anchNamed').val()
+                var dynamic_div = $("<div/>", {
+                    id: nameanch + iCnt,
+                    text: "",
+                }).css({
                     border: '1px dashed',
                     position: 'absolute',
                     top: $('#divContainer').height() + 100,
@@ -116,14 +142,14 @@
                 element_pos = element_pos + $('#main').width() + 20;
                 step++;
                 var aName = $('<p>', {
-                    'text': $('#anchNamed').val()
+                    'text': dynamic_div.attr("id")
                 })
                 aName.css({
                     'text-align': 'center'
                 }).appendTo(dynamic_div)
 
-                optionText = $('#anchNamed').val();
-                optionValue = $('#anchNamed').val();
+                optionText = dynamic_div.attr("id");
+                optionValue = dynamic_div.attr("id");
                 dynamic_div.id = optionText;
                 $('#srce').append(`<option value="${optionValue}"> 
                                    ${optionText} 
@@ -135,13 +161,58 @@
                                    ${optionText} 
                               </option>`);
                 // APPEND THE NEWLY CREATED DIV TO "divContainer".
-                $(dynamic_div).appendTo('#main').draggable().resizable();
+                $(dynamic_div).appendTo('#main');
+                $(dynamic_div).draggable();
+                $(dynamic_div).resizable();
+                var database = firebase.database();
+                database.ref("Maps/" + mapN + "/Nodes/" + optionText).set({
+                    QRID: optionText,
+                    EdgeNumber: 0
+                });
                 iCnt = iCnt + 1;
             }
         });
         $('#deleteClick').click(function() {
-            var dltName = $("dlt option:selected").text();
+            var dltName = $("#dlt option:selected").val();
             $('#' + dltName).remove();
+            $("#srce option[value=" + dltName + "]").remove();
+            $("#dtn option[value=" + dltName + "]").remove();
+            $("#dlt option[value=" + dltName + "]").remove();
+        });
+        $('#addEdge').click(function() {
+
+            var esrc = $('#srce option:selected').val();
+            var etrgt = $('#dtn option:selected').val();
+            var navCom = $('#nav option:selected').val();
+            var weight = $('#weight').val();
+            var database = firebase.database();
+            database.ref("Maps/" + mapN + "/Nodes/" + esrc + "/EDGES/EDGE No").set({
+                Source: esrc,
+                Target: etrgt,
+                Weight: weight,
+                navCommand: navCom
+            })
+            database.ref("Maps/" + mapN + "/Nodes/" + etrgt + "/EDGES/EDGE No").set({
+                Source: etrgt,
+                Target: esrc,
+                Weight: weight,
+                navCommand: navCom
+            })
+            optVal = esrc + "," + etrgt
+            optText = esrc + "," + etrgt
+            $('#rmEdges').append(`<option value="${optVal}"> 
+                                   ${optText} 
+                              </option>`);
+        });
+        $('#rmButton').click(function() {
+            var roomName = $("#rmName").val();
+            var roomPlace = $("#rmEdges option:selected").val();
+            var database = firebase.database();
+            foo = {};
+            foo[roomName] = roomPlace;
+            database.ref("Maps/" + mapN + "/GlobalRoomList").set({
+                [roomName]: roomPlace
+            })
         });
     });
 
@@ -153,27 +224,19 @@
         }
     }
 
-    function writeRoomData(mapName, source, destination, room, weight) {
-        firebase.database().ref('users/' + userId).set({
-            username: name,
-            email: email,
-            profile_picture: imageUrl
-        });
-    }
-
-    function writeMapData() {
-        var Firebase = firebase.database();
-        var newMessageRef = messageListRef.push();
-        newMessageRef.set({
-            Name: "45"
-        });
+    function successRoom() {
+        if (document.getElementById("rmName").value === "") {
+            document.getElementById('rmButton').disabled = true;
+        } else {
+            document.getElementById('rmButton').disabled = false;
+        }
     }
 
     function nclicked() {
         document.getElementById('mapbtClickMe').disabled = true;
-        mapN = document.getElementById('mapNamed').val();
-        firebase.database().ref("Maps").set({
-            Map: mapN
+        mapN = $('#mapNamed').val();
+        firebase.database().ref("Maps/" + mapN).set({
+            MapName: mapN
         })
     }
 </script>
@@ -206,28 +269,25 @@
 <script src="https://unpkg.com/konva@4.1.6/konva.min.js"></script>
 
 
-<script src="https://www.gstatic.com/firebasejs/6.0.2/firebase.js"></script>
-<script src="https://www.gstatic.com/firebasejs/3.2.1/firebase.js"></script>
-<script src="https://www.gstatic.com/firebasejs/3.2.1/firebase.js"></script>
+<!----<script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
 
 <script>
-    const firebaseConfig = {
-        apiKey: "AIzaSyA3ytBSLrjxIqsuFg5uYaOP8HMgZTh-K2o",
-        authDomain: "indoor-navigation-bf70e.firebaseapp.com",
-        databaseURL: "https://indoor-navigation-bf70e.firebaseio.com",
-        projectId: "indoor-navigation-bf70e",
-        storageBucket: "indoor-navigation-bf70e.appspot.com",
-        messagingSenderId: "380532941190",
-        appId: "1:380532941190:web:d1c2fdf1ae2e0f6dbe8c07",
-        measurementId: "G-GJLBX866TQ"
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyAhPsRLOVmveRXkX-MSlYPVUvpSkGx-vD0",
+        authDomain: "indoorsign-762e6.firebaseapp.com",
+        databaseURL: "https://indoorsign-762e6.firebaseio.com",
+        projectId: "indoorsign-762e6",
+        storageBucket: "indoorsign-762e6.appspot.com",
+        messagingSenderId: "22193021019",
+        appId: "1:22193021019:web:190dc9766ec70d003d9f7e",
+        measurementId: "G-TMLTS4LJDN"
     };
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
-
-
-    var storage = firebase.storage();
-    var storageRef = storage.ref();
-</script>
+    //var storage = firebase.storage();
+    //var storageRef = storage.ref();
+</script>-->
 
 
 
