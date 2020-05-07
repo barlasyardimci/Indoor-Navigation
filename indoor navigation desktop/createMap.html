@@ -110,6 +110,7 @@
     var iCnt = 0;
     var step = 0;
     var mapN = " ";
+    var edgesno = 0;
     const firebaseConfig = {
         apiKey: "AIzaSyA3ytBSLrjxIqsuFg5uYaOP8HMgZTh-K2o",
         authDomain: "indoor-navigation-bf70e.firebaseapp.com",
@@ -193,18 +194,19 @@
             var navCom = $('#nav option:selected').val();
             var weight = $('#weight').val();
             var database = firebase.database();
-            database.ref("Maps/" + mapN + "/Nodes/" + esrc + "/EDGES/EDGE No").set({
+            database.ref("Maps/" + mapN + "/Nodes/" + esrc + "/EDGES/EDGE No" + edgesno).set({
                 Source: esrc,
                 Target: etrgt,
                 Weight: weight,
                 navCommand: navCom
             })
-            database.ref("Maps/" + mapN + "/Nodes/" + etrgt + "/EDGES/EDGE No").set({
+            database.ref("Maps/" + mapN + "/Nodes/" + etrgt + "/EDGES/EDGE No" + edgesno).set({
                 Source: etrgt,
                 Target: esrc,
                 Weight: weight,
                 navCommand: navCom
             })
+            edgesno = edgesno + 1;
             optVal = esrc + "," + etrgt
             optText = esrc + "," + etrgt
             $('#rmEdges').append(`<option value="${optVal}"> 
@@ -215,11 +217,7 @@
             var roomName = $("#rmName").val();
             var roomPlace = $("#rmEdges option:selected").val();
             var database = firebase.database();
-            foo = {};
-            foo[roomName] = roomPlace;
-            database.ref("Maps/" + mapN + "/GlobalRoomList").set({
-                [roomName]: roomPlace
-            })
+            database.ref("Maps/" + mapN + "/GlobalRoomList/" + roomName).set(roomPlace)
         });
     });
 
