@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>380532941190-q63b588a18bb47abn34tb6th6rgba7te.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.380532941190-q63b588a18bb47abn34tb6th6rgba7te</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAc_vtzt7a8HzMDFHn5ZvFwLWKC0NfKuVY</string>
+	<key>GCM_SENDER_ID</key>
+	<string>380532941190</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.IndoorNavigation.MobileApplicationIOS</string>
+	<key>PROJECT_ID</key>
+	<string>indoor-navigation-bf70e</string>
+	<key>STORAGE_BUCKET</key>
+	<string>indoor-navigation-bf70e.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:380532941190:ios:28fc3d22ddc4360fbe8c07</string>
+	<key>DATABASE_URL</key>
+	<string>https://indoor-navigation-bf70e.firebaseio.com</string>
+</dict>
+</plist>
