@@ -25,6 +25,8 @@ public class Demo : MonoBehaviour
     public Canvas PopupMapSelect;
     public Canvas CameraCanvas;
     public Canvas PopupRoomSelect;
+    public static String arrowDirection;
+
     void Start()
     {
         PopupMapSelect.enabled = false;
@@ -104,6 +106,9 @@ public class Demo : MonoBehaviour
                 Debug.Log("Navigation commmand is " + navCommand);
 
             }
+
+            arrowDirection = navCommand;
+            SceneManager.LoadScene("Arrow");
 
             TextHeader.text = "Output: " +barCodeValue;
             Debug.Log(barCodeValue);

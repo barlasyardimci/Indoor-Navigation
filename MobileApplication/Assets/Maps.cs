@@ -64,7 +64,7 @@ public class Maps : MonoBehaviour
                     Node source =  QRToNode[nodeContent["EDGES"][edge]["Source"]];
 
                     Node target=  QRToNode[nodeContent["EDGES"][edge]["Target"]];
-                    int weight=nodeContent["EDGES"][edge]["Weight"];
+                    int weight=(int)nodeContent["EDGES"][edge]["Weight"];
                     string navCommand =nodeContent["EDGES"][edge]["navCommand"];
                     Edge currentEdge = new Edge(source, target, weight, navCommand);
                     edgeList.Add(currentEdge);

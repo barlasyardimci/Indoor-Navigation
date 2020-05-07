@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
+  <Tracking>
+    <ImageTarget name="kocred" size="0.120000 0.120000" />
+    <ImageTarget name="koc" size="0.120000 0.100299" />
+    <ImageTarget name="car-marker" size="0.120000 0.060000" />
+  </Tracking>
+</QCARConfig>
