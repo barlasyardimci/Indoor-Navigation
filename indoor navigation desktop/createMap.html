@@ -9,6 +9,11 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
+    <script src="./js/interactableBackgroundImage.js"></script>
+    <script src="https://unpkg.com/konva@4.1.6/konva.min.js"></script>
+
 
     <style>
         body {
@@ -178,6 +183,8 @@
             $("#srce option[value=" + dltName + "]").remove();
             $("#dtn option[value=" + dltName + "]").remove();
             $("#dlt option[value=" + dltName + "]").remove();
+            var rootRef = firebase.database().ref().child("Maps/" + mapN + "/Nodes");
+            var assetKey = rootRef.child(dltName).remove();
         });
         $('#addEdge').click(function() {
 
@@ -264,30 +271,6 @@
         document.getElementById("main").style.marginLeft = "0";
     }
 </script>
-
-<script src="./js/interactableBackgroundImage.js"></script>
-<script src="https://unpkg.com/konva@4.1.6/konva.min.js"></script>
-
-
-<!----<script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
-
-<script>
-    // Your web app's Firebase configuration
-    var firebaseConfig = {
-        apiKey: "AIzaSyAhPsRLOVmveRXkX-MSlYPVUvpSkGx-vD0",
-        authDomain: "indoorsign-762e6.firebaseapp.com",
-        databaseURL: "https://indoorsign-762e6.firebaseio.com",
-        projectId: "indoorsign-762e6",
-        storageBucket: "indoorsign-762e6.appspot.com",
-        messagingSenderId: "22193021019",
-        appId: "1:22193021019:web:190dc9766ec70d003d9f7e",
-        measurementId: "G-TMLTS4LJDN"
-    };
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-    //var storage = firebase.storage();
-    //var storageRef = storage.ref();
-</script>-->
 
 
 
