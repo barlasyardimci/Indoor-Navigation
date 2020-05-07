@@ -26,7 +26,7 @@ public class Demo : MonoBehaviour
     public Canvas CameraCanvas;
     public Canvas PopupRoomSelect;
     public static String arrowDirection;
-
+    public static Boolean isFinalDirection;
     void Start()
     {
         PopupMapSelect.enabled = false;
@@ -98,11 +98,12 @@ public class Demo : MonoBehaviour
             string isFinished = returnList[1];
             if (isFinished == "Finished")
             {
-                
+                isFinalDirection = true;
                 Debug.Log("Navigation commmand is "+navCommand+"the route is finished you can see your destination");
             }
             else
             {
+                isFinalDirection = false; 
                 Debug.Log("Navigation commmand is " + navCommand);
 
             }
