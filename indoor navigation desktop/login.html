@@ -3,6 +3,11 @@
 <head>
     <meta charset="utf-8">
     <title>Welcome To Indoor Map Designer!!</title>
+    <script type="text/javascript" src="./js/login.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
     <link rel="stylesheet" href="main.css">
 </head>
 
@@ -12,19 +17,33 @@
         <h1>LOGIN</h1>
         <form action="index.html" method="post">
             <div class="tbox">
-                <input type="text" placeholder="Username" value="">
+                <input type="text" id="uname" placeholder="Username" value="">
             </div>
 
             <div class="tbox">
-                <input type="password" placeholder="Password" value="">
+                <input type="password" id="pword" placeholder="Password" value="">
             </div>
 
 
         </form>
-        <a href="index.html"><button>LOGIN</button></a>
+        <button onclick="login()">LOGIN</button>
         <a class="b1" href="#">FORGOT PASSWORD?</a>
         <a class="b1" href="signup.html">CREATE AN ACCOUNT</a>
     </div>
 </body>
 
 </html>
+<script>
+    const firebaseConfig = {
+        apiKey: "AIzaSyA3ytBSLrjxIqsuFg5uYaOP8HMgZTh-K2o",
+        authDomain: "indoor-navigation-bf70e.firebaseapp.com",
+        databaseURL: "https://indoor-navigation-bf70e.firebaseio.com",
+        projectId: "indoor-navigation-bf70e",
+        storageBucket: "indoor-navigation-bf70e.appspot.com",
+        messagingSenderId: "380532941190",
+        appId: "1:380532941190:web:d1c2fdf1ae2e0f6dbe8c07",
+        measurementId: "G-GJLBX866TQ"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+</script>

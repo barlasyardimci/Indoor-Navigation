@@ -12,91 +12,50 @@
     <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-storage.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
     <script src="./js/interactableBackgroundImage.js"></script>
+    <script src="./js/draw.js"></script>
     <script src="https://unpkg.com/konva@4.1.6/konva.min.js"></script>
-
-
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-            background-color: #f0f0f0;
-        }
-    </style>
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+    
 </head>
 
-<body>
+<body >
+    <div id="main"></div>
+        <div id='topnav' class='topnav'>
+            <img src="logo-indo.png" width="130px" style="float: left;">
+            <ul>
+                <li><a href="./index.html"><i class="fas fa-home"></i>Home</a></li>
+                <li><a href=""><i class="fas fa-edit"></i>Edit Map</li></a>
+                <li><a href="./importImage.html"><i class="fas fa-upload"></i>Upload Image</a></li>
+                <li><a href="" style="float: right;"><i class="fas fa-address-book"></i>Contact</a></li>
+            </ul>
+        </div>
+        <div id="content">
+            <div id="toolMenu" class="toolMenu">
+                <button style="cursor:pointer;float: right; margin-top: 10px; margin-right: 30px;border:none;" id="myBtn" diasbled:'false'><i class="fas fa-images"></i>  Import Image</button>
+                <button style="cursor:pointer;margin-top: 20px;margin-left: 30px;border:none;" id="btClickMe" ><i class="fas fa-map-pin"></i>  Generate Checkpoint</button>
+                <button style="cursor:pointer;margin-top: 20px;margin-left: 30px; border:none;display: block;" id="addUIEdge" ><i class="fas fa-drafting-compass"></i>  Add Edge</button>
+    
+            </div>
 
-    <div class="topnav">
-        <a href="./index.html">Home</a>
-        <a class="active" href="./createMap.html">Create Map</a>
-        <a href=# "asd">Edit Map</a>
-        <a href="./importImage.html">Upload Image</a>
-        <input type="text" id="mapNamed" required pattern="\S+" placeholder="Enter map name">
-        <input type="button" id="mapbtClickMe" onclick="nclicked()" value="Submit" />
-    </div>
 
+    
+            <div id="myModal" class="modal">
 
-    <div id="mySidebar" class="sidebar">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <h2 class="h2">Items </h2>
-        <h3 class="h3">Import Image</h3>
-        <label class="label" for="imageName">Image Name:</label>
-        <input type="text" id="imageName" required="required" value="">
-        <button class="openbtn" type="button" onclick="setBackground();">Import!</button>
+        
+                <div id='preview' class="modal-content">
+                    <span class="close">&times;</span>
+                    <table id='imgs'>
+                        <tbody>
 
+                        </tbody>
+                    </table>
+
+                </div>
+
+            </div>
+        </div>
     </div>
     <container class="backgroundImageContainer" id="backgroundImageContainer"></container>
-    <div id="main">
-        <label class="label" for="delete">Delete Checkpoint:</label>
-        <select id="dlt">
-            <option value="none"></option>
-        </select>
-        <button class="openbutton" id="deleteClick">Delete Anchor</button>
-        <button class="openbtn" onclick="openNav()">&#9776; Open Sidebar</button>
-        <button class="openRbtn" onclick="openNavR()">&#9776; Add Edge</button>
-        <input type="text" id="anchNamed" onkeyup="success()" required pattern="\S+" placeholder="Enter checkpoint name">
-        <input type="button" id="btClickMe" disabled="true" value="Generate Checkpoint" />
-        <select id="rmEdges">
-            <option value="none"></option>
-        </select>
-        <input type="text" id="rmName" onkeyup="successRoom()" required pattern="\S+" placeholder="Enter room name">
-        <input type="button" id="rmButton" disabled="true" value="Add Room To Edge" />
-
-
-    </div>
-    <div id="rightSideBar" class="sidebar">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNavR()">&times;</a>
-        <h2 class="h2">Create Edge</h2>
-        <label class="label" for="source">Source:</label>
-        <select id="srce">
-            <option value="none"></option>
-        </select>
-        <br></br>
-        <label class="label" for="dest">Destination:</label>
-        <select id="dtn">
-            <option value="none"></option>
-        </select>
-        <br></br>
-        <label class="label" for="comm">Way to go:</label>
-        <select id="nav">
-            <option value="north">North</option>
-            <option value="east">East</option>
-            <option value="west">West</option>
-            <option value="south">South</option>
-            <option value="neast">North-East</option>
-            <option value="nwest">North-West</option>
-            <option value="seast">South-East</option>
-            <option value="swest">South-West</option>
-        </select>
-        <br></br>
-        <label class="label" for="roomname">Enter Distance:</label>
-        <input type="number" id="weight" name="weight" />
-        <br></br>
-        <button class="openbtn" type="button" id="addEdge" onclick="">Add Edge</button>
-
-    </div>
-
 
 </body>
 
@@ -106,7 +65,59 @@
 </html>
 
 <script>
-    var element_pos = 0; // POSITION OF THE NEWLY CREATED ELEMENTS.
+var stop = false;
+var a = 1
+var noClick=0
+$('#addUIEdge').click(function(){
+    a = a+1 
+    console.log('broow'+a)
+    if(noClick==0){
+            $(".anchor").draggable({ disabled: true });
+            noClick = noClick+1;
+            stop=false;
+    }else{
+            $(".anchor").draggable("enable");
+            noClick=0;
+}});
+
+
+function removeLine(){
+    $('#new-link-line').remove();
+}
+
+function endLinkMode() {
+    $(document).unbind('mousemove.link').unbind('click.link').unbind('keydown.link');
+}
+
+    
+
+    var modal = document.getElementById("myModal");
+
+    // Get the button that opens the modal
+    var btn = document.getElementById("myBtn");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks the button, open the modal 
+    btn.onclick = function() {
+        console.log('button PResseddddd');
+        modal.style.display = "block";
+        btn.attr('disabled',true);
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+    var element_pos = 0;
     var iCnt = 0;
     var step = 0;
     var mapN = " ";
@@ -128,72 +139,184 @@
     var storage = firebase.storage();
     var storageRef = storage.ref();
 
+    $('#imgs').find('tbody').html('');
+
+    storageRef.child('backgroundImages/').listAll().then(function(results) {
+
+        results.items.forEach(function(imageRef) {
+            //console.log("Image Reference" + imageRef.toString());
+            displayImage(imageRef);
+        });
+    });
+
+    function displayImage(images) {
+        images.getDownloadURL().then(function(url) {
+
+            console.log(url)
+            let new_html = ''
+            new_html += '<tr>'
+            new_html += '<td>'
+            new_html += '<img src="' + url + '" width="100px" style="float:right">'
+            new_html += '</td>'
+            new_html += '<td>'
+            new_html += '<button style="cursor:pointer" onclick="setBackgroundImage(this)" >Import</button>'
+            new_html += '</td>'
+            new_html += '</tr>'
+            $('#imgs').find('tbody').append(new_html);
+
+        });
+    }
+
+    function setBackgroundImage(item) {
+        var url = $(item).closest('td').prev().children().attr('src')
+        modal.style.display = "none";
+        setBackground(url)
+        btn.attr('disabled') = true
+        
+    }
+    var noClick=0
+    var lineDraw=false;
     $(document).ready(function() {
 
         $('#btClickMe').click(function() {
-            if ($('#anchNamed').val != "") {
-                var nameanch = $('#anchNamed').val()
-                var dynamic_div = $("<div/>", {
-                    id: nameanch + iCnt,
-                    text: "",
-                }).css({
-                    border: '1px dashed',
-                    position: 'absolute',
-                    top: $('#divContainer').height() + 100,
-                    width: '50px',
-                    height: '50px',
-                    background: 'red',
-                });
-                var mySelect
-                element_pos = element_pos + $('#main').width() + 20;
-                step++;
-                var aName = $('<p>', {
-                    'text': dynamic_div.attr("id")
-                })
-                aName.css({
-                    'text-align': 'center'
-                }).appendTo(dynamic_div)
 
-                optionText = dynamic_div.attr("id");
-                optionValue = dynamic_div.attr("id");
-                dynamic_div.id = optionText;
-                $('#srce').append(`<option value="${optionValue}"> 
+            var nameanch = 'QR'
+            var dynamic_div = $("<div/>", {
+                id: nameanch + iCnt,
+                'class': 'anchor'
+            }).css({
+                background: '#4b4276',
+                position: 'absolute',
+                top: $('#divContainer').height() + 400,
+                width: '50px',
+                height: '50px',
+                '-webkit-border-radius': '100%', 
+                '-moz-border-radius': '100%', 
+                'border-radius': '100%'
+            });
+            var mySelect
+            element_pos = element_pos + $('#main').width() + 20;
+            step++;
+            var aName = $('<p>', {
+                'class':'origin',
+                'text': dynamic_div.attr("id")
+            })
+            var but = $('<input>', {
+                class: 'xbut',
+                id: 'remove_' + iCnt,
+                type: 'button',
+                value: 'X',
+                onclick: 'deleteDiv(this)'
+            })
+            but.css({
+                'line-height': '9px',
+                width: '12px',
+                'font-size': '8pt',
+                'margin-top': '-8px',
+                'margin-right': '-5px',
+                'position': 'absolute',
+                'top': '0',
+                'right': '0'
+            }).appendTo(dynamic_div)
+            aName.css({
+                color : '#f1f1f1',
+                'margin-top':'12',
+                'text-align': 'center',
+            }).appendTo(dynamic_div)
+            optionText = dynamic_div.attr("id");
+            optionValue = dynamic_div.attr("id");
+            console.log('id ' + optionText)
+            dynamic_div.id = optionText;
+            $('#srce').append(`<option value="${optionValue}"> 
                                    ${optionText} 
                               </option>`);
-                $('#dtn').append(`<option value="${optionValue}"> 
+            $('#dtn').append(`<option value="${optionValue}"> 
                                    ${optionText} 
                               </option>`);
-                $('#dlt').append(`<option value="${optionValue}"> 
+            $('#dlt').append(`<option value="${optionValue}"> 
                                    ${optionText} 
                               </option>`);
-                // APPEND THE NEWLY CREATED DIV TO "divContainer".
-                $(dynamic_div).appendTo('#main');
-                $(dynamic_div).draggable();
-                $(dynamic_div).resizable();
-                var database = firebase.database();
-                database.ref("Maps/" + mapN + "/Nodes/" + optionText).set({
-                    QRID: optionText,
-                    EdgeNumber: 0
-                });
-                iCnt = iCnt + 1;
+            // APPEND THE NEWLY CREATED DIV TO "divContainer".
+            $(dynamic_div).appendTo('body');
+            $(dynamic_div).draggable().click(function(event) {
+    //a=0
+    console.log(a)
+    if(a % 2 == 0){
+    console.log('if entered')
+    a=a+1
+    
+        lineDraw = true
+    var linkLine = $('<div id="new-link-line"></div>').appendTo('body');
+    var origin = $(this);
+    console.log('origin')
+    linkLine
+        .css('top', origin.offset().top + origin.outerWidth() / 2)
+        .css('left', origin.offset().left + origin.outerHeight() / 2);
+    console.log('css')
+    $(document).click(function linkMouseMoveEvent(event) {
+        console.log('mlink')
+        if($('#new-link-line').length > 0 && stop==false) {
+            var originX = origin.offset().left + origin.outerWidth() / 2;
+            var originY = origin.offset().top + origin.outerHeight() / 2;
+            var length = Math.sqrt((event.pageX - originX) * (event.pageX - originX) + (event.pageY - originY) * (event.pageY - originY));
+            var angle = 180 / 3.1415 * Math.acos((event.pageY - originY) / length);
+            if(event.pageX > originX)
+                angle *= -1;
+    
+            $('#new-link-line')
+                .css('height', length)
+                .css('-webkit-transform', 'rotate(' + angle + 'deg)')
+                .css('-moz-transform', 'rotate(' + angle + 'deg)')
+                .css('-o-transform', 'rotate(' + angle + 'deg)')
+                .css('-ms-transform', 'rotate(' + angle + 'deg)')
+                .css('transform', 'rotate(' + angle + 'deg)');
+            if($(event.target).hasClass("anchor")){
+              $(document).unbind('mousemove.link').unbind('click.link').unbind('keydown.link');             
+                    console.log("unlinked");
+                    $('#new-link-line').addClass("connected-link-line");
+                    $('#new-link-line').attr("id","#connected-link-line");
+                    stop = true;
             }
+            
+        }else{
+            event.stopImmediatePropagation()
+        }
+    });
+    $(document).bind('keydown.link', function(event) {
+        // ESCAPE key pressed
+        if(event.keyCode == 27) {
+            endLinkMode();
+            removeLine();
+        }
+    });
+}});
+            /* var database = firebase.database();
+             database.ref("Maps/" + mapN + "/Nodes/" + optionText).set({
+                 QRID: optionText,
+                 EdgeNumber: 0
+             });*/
+            iCnt = iCnt + 1;
+
         });
+
+
         $('#deleteClick').click(function() {
             var dltName = $("#dlt option:selected").val();
             $('#' + dltName).remove();
             $("#srce option[value=" + dltName + "]").remove();
             $("#dtn option[value=" + dltName + "]").remove();
             $("#dlt option[value=" + dltName + "]").remove();
-            var rootRef = firebase.database().ref().child("Maps/" + mapN + "/Nodes");
-            var assetKey = rootRef.child(dltName).remove();
+            /*var rootRef = firebase.database().ref().child("Maps/" + mapN + "/Nodes");
+            var assetKey = rootRef.child(dltName).remove();*/
         });
+
         $('#addEdge').click(function() {
 
             var esrc = $('#srce option:selected').val();
             var etrgt = $('#dtn option:selected').val();
             var navCom = $('#nav option:selected').val();
             var weight = $('#weight').val();
-            var database = firebase.database();
+            /*var database = firebase.database();
             database.ref("Maps/" + mapN + "/Nodes/" + esrc + "/EDGES/EDGE No" + edgesno).set({
                 Source: esrc,
                 Target: etrgt,
@@ -205,7 +328,7 @@
                 Target: esrc,
                 Weight: weight,
                 navCommand: navCom
-            })
+            })*/
             edgesno = edgesno + 1;
             optVal = esrc + "," + etrgt
             optText = esrc + "," + etrgt
@@ -220,6 +343,43 @@
             database.ref("Maps/" + mapN + "/GlobalRoomList/" + roomName).set(roomPlace)
         });
     });
+
+    function linkMouseMoveEvent(event) {
+        if ($('#new-link-line').length > 0) {
+            var originX = $('#origin').offset().left + $('#origin').outerWidth() / 2;
+            var originY = $('#origin').offset().top + $('#origin').outerHeight() / 2;
+
+            var length = Math.sqrt((event.pageX - originX) * (event.pageX - originX) +
+                (event.pageY - originY) * (event.pageY - originY));
+
+            var angle = 180 / 3.1415 * Math.acos((event.pageY - originY) / length);
+            if (event.pageX > originX)
+                angle *= -1;
+
+            $('#new-link-line')
+                .css('height', length)
+                .css('-webkit-transform', 'rotate(' + angle + 'deg)')
+                .css('-moz-transform', 'rotate(' + angle + 'deg)')
+                .css('-o-transform', 'rotate(' + angle + 'deg)')
+                .css('-ms-transform', 'rotate(' + angle + 'deg)')
+                .css('transform', 'rotate(' + angle + 'deg)');
+        }
+    }
+
+    function endLinkMode() {
+        $('#new-link-line').remove();
+        $(document).unbind('mousemove.link').unbind('click.link').unbind('keydown.link');
+    }
+
+    function deleteDiv(elem) {
+        var id = elem.id;
+        var split_id = id.split("_");
+        var deleteindex = split_id[1];
+
+        // Remove <div> with id
+        var divid = 'QR' + deleteindex
+        $('#' + divid).remove();
+    }
 
     function success() {
         if (document.getElementById("anchNamed").value === "") {
@@ -247,27 +407,13 @@
 </script>
 
 <script>
-    function openNavR() {
-        document.getElementById("rightSideBar").style.width = "350px";
-        document.getElementById("main").style.marginRight = "350px";
-    }
-
-    function closeNavR() {
-        document.getElementById("rightSideBar").style.width = "0";
-        document.getElementById("main").style.marginRight = "0";
-    }
-
-    /* Set the width of the sidebar to 250px and the left margin of the page content to 250px */
     function openNav() {
-        document.getElementById("mySidebar").style.width = "250px";
-        document.getElementById("main").style.marginLeft = "250px";
-    }
+  document.getElementById("sidebar").style.width = "250px";
+}
 
-    /* Set the width of the sidebar to 0 and the left margin of the page content to 0 */
-    function closeNav() {
-        document.getElementById("mySidebar").style.width = "0";
-        document.getElementById("main").style.marginLeft = "0";
-    }
+function closeNav() {
+  document.getElementById("sidebar").style.width = "0";
+}
 </script>
 
 
