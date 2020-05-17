@@ -358,6 +358,9 @@
     <Reference Include="Firebase.Platform">
       <HintPath>C:/Users/Metin/Documents/GitHub/Indoor-Navigation/MobileApplication/Assets/Firebase/Plugins/Firebase.Platform.dll</HintPath>
     </Reference>
+    <Reference Include="Firebase.Storage">
+      <HintPath>C:/Users/Metin/Documents/GitHub/Indoor-Navigation/MobileApplication/Assets/Firebase/Plugins/Firebase.Storage.dll</HintPath>
+    </Reference>
     <Reference Include="Firebase.TaskExtension">
       <HintPath>C:/Users/Metin/Documents/GitHub/Indoor-Navigation/MobileApplication/Assets/Firebase/Plugins/Firebase.TaskExtension.dll</HintPath>
     </Reference>
